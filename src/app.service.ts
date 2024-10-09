@@ -5,10 +5,10 @@ export class AppService {
   private readonly logger = new Logger(AppService.name);
 
   getHello(): string {
-    this.logger.log('Logueando información...', { info: 'Información' });
-    this.logger.warn('Logueando advertencia...', { warn: 'Advertencia' });
-    this.logger.error('Logueando error...', { error: 'Error' });
-    this.logger.fatal('Logueando fatal...', { fatal: 'Fatal' });
+    this.logger.log('Logueando información...');
+    this.logger.warn('Logueando advertencia...');
+    this.logger.error('Logueando error...');
+    this.logger.fatal('Logueando fatal...');
 
     return 'Hello World!';
   }

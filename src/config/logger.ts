@@ -16,7 +16,7 @@ export const jsonFormat = winston.format.printf(({ level, message, ...meta }) =>
   return JSON.stringify({
     severity: level.toUpperCase(),
     message,
-    ...meta,
+    ...meta.metadata,
   });
 });
 
@@ -26,6 +26,12 @@ export const LoggerConfig = WinstonModule.createLogger({
     new winston.transports.Console({
       format: winston.format.combine(winston.format.colorize()),
     }),
-    new LoggingWinston(),
+    new LoggingWinston({
+      resource: {
+        labels: {
+          
+        }
+      }
+    }),
   ],
 });
