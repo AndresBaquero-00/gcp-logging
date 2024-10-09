@@ -28,9 +28,7 @@ export const LoggerConfig = WinstonModule.createLogger({
       format: winston.format.combine(winston.format.colorize()),
     }),
     new LoggingWinston({
-      serviceContext: {
-        service: 'gcp-logging',
-      },
+      prefix: 'GCP Logging MS'
     }),
   ],
 });
