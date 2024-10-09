@@ -16,7 +16,7 @@ export const jsonFormat = winston.format.printf(({ level, message, ...meta }) =>
   return JSON.stringify({
     severity: level.toUpperCase(),
     message,
-    labels: meta.metadata,
+    ...meta,
   });
 });
 
@@ -28,11 +28,9 @@ export const LoggerConfig = WinstonModule.createLogger({
       format: winston.format.combine(winston.format.colorize()),
     }),
     new LoggingWinston({
-      resource: {
-        labels: {
-
-        }
-      }
+      serviceContext: {
+        service: 'gcp-logging',
+      },
     }),
   ],
 });
