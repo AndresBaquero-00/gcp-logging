@@ -14,6 +14,7 @@ export const LoggerConfig = WinstonModule.createLogger({
   exitOnError: false,
   format: winston.format.combine(winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }), jsonFormat),
   transports: [
+    new winston.transports.Console(),
     new LoggingWinston({
       prefix: 'GCP Logging MS',
       labels: {
