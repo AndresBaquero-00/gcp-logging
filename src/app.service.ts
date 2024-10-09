@@ -5,12 +5,13 @@ export class AppService {
   private readonly logger = new Logger(AppService.name);
 
   getHello(): string {
-    this.logger.log('Logueando información...');
+    this.logger.log('Logueando información...', { context: AppService.name, microservice: 'training-ms-ccb' });
     try {
       this.logger.warn('Logueando advertencia...');
       throw new Error('Un error desconocido ha sucedido.');
     } catch (e) {
       this.logger.error('Logueando error...', e);
+      this.logger.error('Logueando error...', { error: 'error', code: 500 });
     }
 
     return 'Hello World!';
