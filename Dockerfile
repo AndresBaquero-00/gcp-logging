@@ -1,9 +1,8 @@
 FROM node:lts-alpine3.20 AS build
 
 WORKDIR /app
-COPY package*.json ./
-RUN npm install
 COPY . .
+RUN npm install
 RUN npm run build
 
 # Etapa de producción
