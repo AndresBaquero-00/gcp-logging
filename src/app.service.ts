@@ -8,7 +8,6 @@ export class AppService {
     this.logger.log('Logueando información...');
     this.logger.warn('Logueando advertencia...');
     this.logger.error('Logueando error...');
-    this.logger.fatal('Logueando fatal...');
 
     return 'Hello World!';
   }
