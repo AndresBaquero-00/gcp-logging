@@ -21,6 +21,7 @@ export const jsonFormat = winston.format.printf(({ level, message, ...meta }) =>
 });
 
 export const LoggerConfig = WinstonModule.createLogger({
+  exitOnError: false,
   format: winston.format.combine(winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }), jsonFormat),
   transports: [
     new winston.transports.Console({
