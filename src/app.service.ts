@@ -4,7 +4,7 @@ import { Injectable, Logger } from '@nestjs/common';
 export class AppService {
   private readonly logger = new Logger(AppService.name);
 
-  getHello(): string {
+  getHello(): any {
     this.logger.log('Logueando información...', { context: AppService.name, microservice: 'training-ms-ccb' });
     try {
       this.logger.warn('Logueando advertencia...');
@@ -14,6 +14,6 @@ export class AppService {
       this.logger.error('Logueando error...', { error: 'error', code: 500 });
     }
 
-    return 'Hello World!';
+    return process.env;
   }
 }
